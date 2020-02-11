@@ -42,9 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProblems.cs" />
-    <Compile Include="ProblemRepository.cs" />
-    <Compile Include="Problems.cs" />
+    <Compile Include="IChallenges.cs" />
+    <Compile Include="ChallengeRepository.cs" />
+    <Compile Include="Challenges.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

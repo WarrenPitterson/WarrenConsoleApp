@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WarrenConsoleApp
 {
-    interface IProblems
+    interface IChallenges
     {
         
         //WP - Implement me

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace WarrenConsoleApp
 {
-    public class Problems
+    public class Challenges
     {
-        public Problems(int id, string name, string description, string solution)
+        public Challenges(int id, string name, string description, string solution)
         {
             this.Id = id;
             this.Name = name;
