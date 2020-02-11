@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IChallenges.cs" />
-    <Compile Include="ChallengeRepository.cs" />
+    <Compile Include="ChallengesRepository.cs" />
     <Compile Include="Challenges.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

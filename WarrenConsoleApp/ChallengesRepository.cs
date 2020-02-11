@@ -7,30 +7,71 @@ using System.Threading.Tasks;
 
 namespace WarrenConsoleApp
 {
-    public class ChallengeRepository
+    public class ChallengesRepository : IChallenges
     {
-        public static readonly List<Challenges> ListOfChallenges = new List<Challenges>();
+        private readonly List<Challenges> listOfChallenges = new List<Challenges>();
 
-        public ChallengeRepository()
+        public void UserOption()
         {
-          
+            var userInput = Console.ReadLine();
+            Int32.TryParse(userInput, out int userInputInt);
+
+            switch (userInputInt)
+            {
+                case 1:
+                    Console.WriteLine();
+                    GetChallengeById(userInputInt);
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine();
+                    GetChallengeById(userInputInt);
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    Console.WriteLine();
+                    GetChallengeById(userInputInt);
+                    Console.ReadLine();
+                    break;
+                case 4:
+                    Console.WriteLine();
+                    GetChallengeById(userInputInt);
+                    Console.ReadLine();
+                    break;
+                case 5:
+                    Console.WriteLine();
+                    GetChallengeById(userInputInt);
+                    Console.ReadLine();
+                    break;
+                case 6:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.Write("Select a number from the list above");
+                    Console.ReadLine();
+                    break;
+            }
         }
 
-
-        public void ShowSolutionById(int id)
+        public void GetChallengeById(int id)
         {
-            var entity = ListOfChallenges.SingleOrDefault(i => i.Id == id);
-
+            var entity = listOfChallenges.SingleOrDefault(i => i.Id == id);
             Display(entity);
         }
 
 
-        private static void Display(Challenges entity)
+        public void Display(Challenges entity)
         {
             Console.WriteLine($"{entity.Id},\n{entity.Name},{entity.Description},{entity.Solution}");
         }
 
-        public static void LoadData() 
+        public void AddChallengeToList(Challenges entity)
+        {
+            listOfChallenges.Add(entity);
+
+        }
+
+        public Challenges LoadData() 
         {
             var euler1 = new Challenges(1, "Multiples of 3 and 5",
                 "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23." +
@@ -115,12 +156,18 @@ namespace WarrenConsoleApp
                 "ANSWER - 906609");
 
 
-            var euler5 = new Challenges(5, "Smallest multiple product", "\nProblem 5 Smallest multiple product\n" +
-                                                                        "----------------------------------\n" +
-                                                                        "2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder\n" +
-                                                                        "What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20 ?\n",
-                "function smallestProduct() {\n" +
-                "for (i = 1; i < 232792561; i++)\n" +
+            AddChallengeToList(euler1, euler2, euler3, euler4);
+            
+            return new Challenges  // WP - This will need an interface
+            {
+                Id = 5,
+                Name = "Smallest multiple product",
+                Description = "\nProblem 5 Smallest multiple product\n" +
+                "----------------------------------\n" +
+                "2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder\n" +
+                "What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20 ?\n",
+                Solution =
+                "function smallestProduct() {\n" + "for (i = 1; i < 232792561; i++)\n" +
                 "{dividable = true;\n" +
                 "for (j = 2; j < 20; j++){\n" +
                 "if (i % j != 0){\n" +
@@ -133,20 +180,28 @@ namespace WarrenConsoleApp
                 "}\n" +
                 "}\n" +
                 "smallestProduct();\n" +
-                "ANSWER - 232792560");
+                "ANSWER - 232792560"
 
-            GetChallenges(euler1, euler2, euler3, euler4, euler5);
+            };
+
         }
 
-        private static void GetChallenges(Challenges euler1, Challenges euler2, Challenges euler3, Challenges euler4,
-            Challenges euler5)
+
+
+        private void AddChallengeToList(Challenges euler1, Challenges euler2, Challenges euler3, Challenges euler4) //WP this works but it's not how i want it
         {
-            ListOfChallenges.Add(euler1);
-            ListOfChallenges.Add(euler2);
-            ListOfChallenges.Add(euler3);
-            ListOfChallenges.Add(euler4);
-            ListOfChallenges.Add(euler5);
+            listOfChallenges.Add(euler1);
+            listOfChallenges.Add(euler2);
+            listOfChallenges.Add(euler3);
+            listOfChallenges.Add(euler4);
+            // ListOfChallenges.Add(euler5);
         }
+
+        //public Challenges GetChallenges(int id)
+        //{
+        //    var response = IChallenges
+        //}
+
     }
 }
     

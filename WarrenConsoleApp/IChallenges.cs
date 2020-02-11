@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace WarrenConsoleApp
 {
-    interface IChallenges
+    public interface IChallenges
     {
-        
-        //WP - Implement me
+        void GetChallengeById(int id);
+
+        void Display(Challenges entity);
+        Challenges LoadData();
+    
+        void AddChallengeToList(Challenges entity);
+
     }
 }
