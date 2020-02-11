@@ -11,9 +11,5 @@ namespace WarrenConsoleApp
         void GetChallengeById(int id);
 
         void Display(Challenges entity);
-        Challenges LoadData();
-    
-        void AddChallengeToList(Challenges entity);
-
     }
 }
